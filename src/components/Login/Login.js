@@ -4,6 +4,14 @@ import Card from "../UI/Card/Card"
 import classes from "./Login.module.css"
 import Button from "../UI/Button/Button"
 
+const formInitialState = {
+  email: "",
+  emailIsValid: undefined,
+  password: "",
+  passwordIsValid: undefined,
+  formIsValid: undefined,
+}
+
 const formReducer = (state, action) => {
   switch (action.type) {
     case "EMAIL_INPUT":
@@ -37,22 +45,8 @@ const formReducer = (state, action) => {
         formIsValid: state.emailIsValid && state.passwordIsValid,
       }
     default:
-      return {
-        email: "",
-        emailIsValid: undefined,
-        password: "",
-        passwordIsValid: undefined,
-        formIsValid: undefined,
-      }
+      return formInitialState
   }
-}
-
-const formInitialState = {
-  email: "",
-  emailIsValid: undefined,
-  password: "",
-  passwordIsValid: undefined,
-  formIsValid: undefined,
 }
 
 const Login = (props) => {
